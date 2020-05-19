@@ -4,7 +4,8 @@
             5000 7500
             10000 15000
             20000 25000
-            30000 35000])
+            30000 35000
+            40000 50000])
 
 (def maxnum (max ;sizes))
 (print "Building randomly shuffled list of " maxnum " numbers")
@@ -17,12 +18,12 @@
 (def offset (* 2 (- offset-end offset-start)))
 
 (each size sizes
-  (def nums (range 0 size))
+  (def items (array/slice numbers 0 size))
   (def start (os/clock))
 
   (def skew (skewheap/make))
-  (each n nums (skewheap/put skew (numbers n)))
-  (each _ nums (skewheap/take skew))
+  (skewheap/put skew ;items)
+  (each _ items (skewheap/take skew))
 
   (def end (os/clock))
   (def took (- end start offset))
