@@ -50,7 +50,7 @@ Returns true if the queue has zero items in it.
 
 ## skewheap/peek
 
-    (skewheap/peak queue)
+    (skewheap/peek queue)
 
 Returns the first item in the queue without removing it from the queue. Returns
 `nil` if the queue is empty.
