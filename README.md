@@ -44,7 +44,7 @@ Returns the number of items in the queue.
 
 ## skewheap/is-empty?
 
-    (skewheap/size queue)
+    (skewheap/is-empty? queue)
 
 Returns true if the queue has zero items in it.
 
