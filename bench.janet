@@ -3,7 +3,7 @@
 (def sizes [10000
             50000
             100000
-            500000])
+            250000])
 
 (def maxnum (max ;sizes))
 (print "Building randomly shuffled list of " maxnum " numbers")
