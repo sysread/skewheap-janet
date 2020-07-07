@@ -32,7 +32,7 @@ jobs:
       run: echo $(pwd) && ls -Rls
 
     - name: install janet
-      run: cd janet-${{ steps.janet-ver.outputs.tag }} && make install && cd ..
+      run: echo $(pwd) && ls janet-${{ steps.janet-ver.outputs.tag }} && cd janet-${{ steps.janet-ver.outputs.tag }} && make install && cd ..
 
     - name: run tests
       run: /usr/bin/env jpm test
