@@ -29,7 +29,7 @@ jobs:
       run: tar zxvf ${{ steps.janet-ver.outputs.tag }}.tar.gz
 
     - name: install janet
-      run: export janetdir=$(echo ${{ steps.janet-ver.outputs.tag }} | sed -e 's/v//') && cd $janetdir && make install && cd ..
+      run: export janetdir=$(echo ${{ steps.janet-ver.outputs.tag }} | sed -e 's/v/janet-/') && cd $janetdir && make install && cd ..
 
     - name: run tests
       run: ./janet/jpm test
