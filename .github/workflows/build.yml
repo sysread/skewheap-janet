@@ -31,5 +31,8 @@ jobs:
     - name: add directory to path
       run: echo "::add-path::janet-v1.9.1-linux"
 
+    - name: install deps
+      run: /usr/bin/env jpm deps
+
     - name: run tests
       run: /usr/bin/env jpm test
