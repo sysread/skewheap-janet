@@ -21,7 +21,7 @@
 
   (def skew (skewheap/make))
   (skewheap/put skew ;items)
-  (each _ items (skewheap/take skew))
+  (skewheap/drain skew)
 
   (def end (os/clock))
   (def took (- end start offset))

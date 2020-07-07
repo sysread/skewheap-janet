@@ -62,6 +62,13 @@ Returns the first item in the queue without removing it from the queue. Returns
 Removes and returns the next item in the queue. Returns `nil` if the queue is
 empty.
 
+## skewheap/drain
+
+    (skewheap/drain queue &opt acc)
+
+Removes and returns an array of all items in the queue. Optionally accepts an
+existing array to append with the ordered queue items.
+
 ## skewheap/put
 
     (skewheap/put queue & items)

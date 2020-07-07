@@ -55,12 +55,25 @@
 (defn take
   "Removes and returns an item from the heap. Returns nil when empty."
   [skew]
-  (unless (is-empty? skew)
+  (unless (= 0 (skew skew-size))
     (var root (skew skew-root))
     (var value (root item))
     (-- (skew skew-size))
     (set (skew skew-root) (merge skew (root left) (root right)))
     value))
+
+(defn drain
+  "Removes and returns an array of all items from the heap."
+  [skew &opt acc]
+  (default acc @[])
+  (if (= (skew skew-size) 0)
+    acc
+    (do
+      (var root (skew skew-root))
+      (array/push acc (root item))
+      (-- (skew skew-size))
+      (set (skew skew-root) (merge skew (root left) (root right)))
+      (drain skew acc))))
 
 (defn- explain-node
   "Prints out a description of the node."

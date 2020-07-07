@@ -26,4 +26,9 @@
 
   (is (skewheap/is-empty? skew) "is-empty?: true after skewheap was emptied"))
 
+(deftest drain
+  (def skew (skewheap/make))
+  (skewheap/put skew ;numbers)
+  (is (deep= numbers (skewheap/drain skew))))
+
 (run-tests!)
