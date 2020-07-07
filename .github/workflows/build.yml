@@ -28,6 +28,9 @@ jobs:
     - name: extract janet
       run: tar zxvf ${{ steps.janet-ver.outputs.tag }}.tar.gz
 
+    - name: list directory contents
+      run: echo $(pwd) && ls -Rls
+
     - name: install janet
       run: cd janet-${{ steps.janet-ver.outputs.tag }} && make install && cd ..
 
