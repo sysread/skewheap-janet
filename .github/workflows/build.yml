@@ -32,4 +32,4 @@ jobs:
       run: echo "::add-path::janet-${{ steps.janet-ver.outputs.tag }}-linux"
 
     - name: run tests
-      run: /usr/bin/env jpm test
+      run: /usr/bin/env janet test/*
