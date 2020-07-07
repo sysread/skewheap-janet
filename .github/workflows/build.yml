@@ -14,22 +14,8 @@ jobs:
     - name: checkout skewheap
       uses: actions/checkout@v2
 
-    - name: find latest version of janet
-      uses: oprypin/find-latest-tag@v1
-      id: janet-ver
-      with:
-        repository: janet-lang/janet
-        releases_only: true
-        prefix: 'v'
+    - name: build test image
+      run: docker build -t test-skewheap .
 
-    - name: download janet
-      run: curl -LO https://github.com/janet-lang/janet/releases/download/${{ steps.janet-ver.outputs.tag }}/janet-${{ steps.janet-ver.outputs.tag }}-linux.tar.gz
-
-    - name: extract janet
-      run: tar -xvzf janet-${{ steps.janet-ver.outputs.tag }}-linux.tar.gz
-
-    - name: add directory to path
-      run: echo "::add-path::janet-${{ steps.janet-ver.outputs.tag }}-linux"
-
-    - name: run tests
-      run: /usr/bin/env jpm test
+    - name: run test suite
+      run: docker run test-skewheap
