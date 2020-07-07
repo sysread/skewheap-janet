@@ -29,7 +29,7 @@ jobs:
       run: tar zxvf ${{ steps.janet-ver.outputs.tag }}.tar.gz
 
     - name: install janet
-      run: cd ${{ steps.janet-ver.outputs.tag }} && make install && cd ..
+      run: cd janet-${{ steps.janet-ver.outputs.tag }} && make install && cd ..
 
     - name: run tests
       run: /usr/bin/env jpm test
