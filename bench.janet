@@ -1,11 +1,9 @@
 (import skewheap)
 
-(def sizes [1000 2500
-            5000 7500
-            10000 15000
-            20000 25000
-            30000 35000
-            40000 50000])
+(def sizes [10000
+            50000
+            100000
+            500000])
 
 (def maxnum (max ;sizes))
 (print "Building randomly shuffled list of " maxnum " numbers")
