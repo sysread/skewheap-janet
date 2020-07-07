@@ -23,13 +23,13 @@ jobs:
         prefix: 'v'
 
     - name: download janet
-      run: curl -LO https://github.com/janet-lang/janet/archive/${{ steps.janet-ver.outputs.tag }}.tar.gz -o janet.tar.gz
+      run: curl -LO https://github.com/janet-lang/janet/archive/${{ steps.janet-ver.outputs.tag }}.tar.gz
 
     - name: extract janet
-      run: tar zxvf janet.tar.gz -C ./janet
+      run: tar zxvf ${{ steps.janet-ver.outputs.tag }}.tar.gz
 
     - name: install janet
-      run: cd janet && make install && cd ..
+      run: export janetdir=$(echo ${{ steps.janet-ver.outputs.tag }} | sed -e 's/v//') && cd $janetdir && make install && cd ..
 
     - name: run tests
       run: ./janet/jpm test
