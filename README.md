@@ -1,3 +1,5 @@
+![build](https://github.com/sysread/skewheap-janet/workflows/build/badge.svg)
+
 # NAME
 
 skewheap - a self-balancing priority heap
